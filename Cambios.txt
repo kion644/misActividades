@@ -1,0 +1,3 @@
+Variable de entorno BackEnd donde
+	Omito ConexionTsService y fileController
+Argumentos de ejecución de Np para base de datos interna

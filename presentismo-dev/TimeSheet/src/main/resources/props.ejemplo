@@ -1,0 +1,12 @@
+server.port=9090 #url del servicio
+
+#Configuracion de JPA
+spring.datasource.url=jdbc:sqlserver://ip:puerto;databaseName=nombre; #Url de ejemplo
+spring.datasource.username=usuario
+spring.datasource.password=password
+spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.jpa.show-sql=true #Muestra el codigo SQL en consola cuando se ejecuta
+spring.jpa.database-platform=org.hibernate.dialect.SQLServer2012Dialect
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+spring.jpa.hibernate.naming.implicit-strategy=org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl

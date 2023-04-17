@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/misactividades/RegistroHorario/static/css/main.21793521.css",
+    "main.js": "/misactividades/RegistroHorario/static/js/main.0e28e97a.js",
+    "static/media/cda_bg.jpg": "/misactividades/RegistroHorario/static/media/cda_bg.6f09169d976350cdb5c7.jpg",
+    "static/media/sonido.mp3": "/misactividades/RegistroHorario/static/media/sonido.343869f4f5f512305fd7.mp3",
+    "index.html": "/misactividades/RegistroHorario/index.html",
+    "main.21793521.css.map": "/misactividades/RegistroHorario/static/css/main.21793521.css.map",
+    "main.0e28e97a.js.map": "/misactividades/RegistroHorario/static/js/main.0e28e97a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.21793521.css",
+    "static/js/main.0e28e97a.js"
+  ]
+}
