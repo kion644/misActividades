@@ -9,9 +9,10 @@ import { useContext, useState } from 'react';
 import Context from '../../../hooks/UseContext/Solicitudes';
 import {useNavigate} from 'react-router-dom'
 import { environment } from '../../../enviroment/enviroment';
-import { Dialog, DialogContent, DialogTitle } from '@material-ui/core';
+import { Dialog } from '@material-ui/core';
 import React from 'react';
 import { ButtonPrimary } from '../Buttons/Primary/ButtonPrimary';
+import { AvatarInfoDeploy } from './AvatarInfoDeploy';
 
 interface textAvatar {
     text: string | null;
@@ -58,11 +59,7 @@ export const AvatarProfile = ({ text}: textAvatar) => {
     const HandleClickOpen=()=>{
         setOpenPop(true);
         setAbrirPop(true);
-    }
-    const lider = 'LiderX';
-    const rol = 'rol';
-    const legajo = 123;
-    const nombre = localStorage.getItem("nombre");
+    }    
     return (
         <>
             <Button aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
@@ -85,25 +82,12 @@ export const AvatarProfile = ({ text}: textAvatar) => {
                 <MenuItem onClick={close}>Cerrar Sesión</MenuItem>
             </Menu>
             <Dialog onClose={handleClosePop} open={openPop} aria-labelledby="customized-dialog-title" maxWidth='xl'>
-            <div style={{marginBottom:'7px'}}>
-            <div className={classes.titulo}>
-                <DialogTitle id="customized-dialog-title">
-                    Información personal
-                </DialogTitle>
-            </div>
-                <DialogContent dividers>
-                    <div style={{display: 'flex', alignItems: 'end'}}>
-                        <div>Nombre: {nombre}</div>
-                        <div>Legajo: {legajo}</div>
-                        <div>Rol: {rol}</div>
-                        <div>Lider: {lider}</div>
-                    </div>
-                </DialogContent>
-                <div style={{textAlign:'center'}}>
+                <AvatarInfoDeploy></AvatarInfoDeploy>
+                <div style={{textAlign:'center',marginBottom:'7px'}}>
                 <ButtonPrimary text={'Cerrar'} disabled={false} onClick={handleClosePop}></ButtonPrimary>    
                 </div>
-            </div>
             </Dialog>
+            
         </>
     )
 }

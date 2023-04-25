@@ -123,6 +123,30 @@ public class UsuarioService implements UserDetailsService {
         return usuarioDao.findAllByUsernameIgnoreCase(JwtUtils.extraerUsernameDelToken(tokenConBearer));
     }
 
+    public UsuarioConLiderDto getUsuarioLiderByBEarerToken(String tokenConBearer){
+
+        try{
+            Usuario usuario = usuarioDao.findAllByUsernameIgnoreCase(JwtUtils.extraerUsernameDelToken(tokenConBearer));
+            UsuarioDto lider = new UsuarioDto(
+                    usuario.getLider().getUsername(),
+                    usuario.getLider().getNombre(),
+                    usuario.getLider().getApellido()
+            );
+            UsuarioConLiderDto retorno = new UsuarioConLiderDto(
+                    usuario.getId(),
+                    usuario.getUsername(),
+                    usuario.getNombre(),
+                    usuario.getApellido(),
+                    lider,
+                    usuario.getLegajo(),
+                    usuario.getRol().getTipo()
+            );
+            return retorno;
+        }catch(Exception e){
+            logger.error("Error en ComboService > getUsuarioLiderByBEarerToken: {}", e.getMessage());
+            return null;
+        }
+    }
     public Usuario findByUsername(String username){
         return usuarioDao.findByUsernameIgnoreCase(username);
     }

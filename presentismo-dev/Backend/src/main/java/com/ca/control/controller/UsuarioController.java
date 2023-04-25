@@ -3,6 +3,7 @@ package com.ca.control.controller;
 import com.ca.control.dao.UsuarioDao;
 import com.ca.control.dto.AllUsers;
 import com.ca.control.dto.LideresResponse;
+import com.ca.control.dto.UsuarioConLiderDto;
 import com.ca.control.model.Usuario;
 import com.ca.control.service.UsuarioService;
 import org.slf4j.Logger;
@@ -43,6 +44,17 @@ public class UsuarioController
         usuariosDestinatarios.addAll(usuariosNoDestinatarios);
 
         return new ResponseEntity<>(usuariosDestinatarios, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/usuario")
+    public ResponseEntity<UsuarioConLiderDto> getUsuarioByUsername(@RequestHeader(HttpHeaders.AUTHORIZATION) String token)
+    {
+        try{
+            return new ResponseEntity<>(usuarioService.getUsuarioLiderByBEarerToken(token), HttpStatus.OK);
+        }catch (Exception e){
+            logger.error("Error en UsuariosController > getUsuarioByUsername: {}",e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping(path = "/lideres")
